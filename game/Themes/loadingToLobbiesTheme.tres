@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://bx8hkom82goh6"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_u2wnd"]
+
+[sub_resource type="FontVariation" id="FontVariation_m5csl"]
+base_font = ExtResource("1_u2wnd")
+
+[resource]
+default_font = SubResource("FontVariation_m5csl")
+Label/font_sizes/font_size = 53

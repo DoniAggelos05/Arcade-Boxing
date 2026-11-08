@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cp6h0qmmq8v4p"]
+
+[ext_resource type="PackedScene" uid="uid://uspnbr3rocg5" path="res://Ring/Meshes/ring_floor_mesh.tscn" id="1_bgh84"]
+
+[node name="CompleteRing" type="CompleteRing" unique_id=1825729381]
+
+[node name="FloorMesh" parent="." unique_id=1804226045 instance=ExtResource("1_bgh84")]
+unique_name_in_owner = true
+
+[node name="Aprons" type="Node3D" parent="." unique_id=92270432]
+unique_name_in_owner = true
+
+[node name="Posts" type="Node3D" parent="." unique_id=816952368]
+unique_name_in_owner = true
+
+[node name="RopeSets" type="Node3D" parent="." unique_id=1247574108]
+unique_name_in_owner = true

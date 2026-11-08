@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://clovxjrb0q4fn"]
+
+[ext_resource type="Texture2D" uid="uid://s3gvb016y6pb" path="res://icon.svg" id="1_0470c"]
+[ext_resource type="Theme" uid="uid://dyjcbfapx74hw" path="res://Themes/InLobbyTextTheme.tres" id="1_nfjfj"]
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="2_0470c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fh3a"]
+bg_color = Color(0.14767182, 0.14767179, 0.14767179, 0.60784316)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+shadow_color = Color(0, 0, 0, 0.8901961)
+shadow_size = 6
+
+[sub_resource type="FontVariation" id="FontVariation_7fh3a"]
+base_font = ExtResource("2_0470c")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5csl"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.5151088, 0, 0.11628496, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbudn"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.3805842, 2.4065375e-08, 0.07722946, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvdha"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.58646435, 3.730133e-07, 0.13972855, 1)
+
+[node name="PlayerRow" type="PlayerRow" unique_id=837409626]
+custom_minimum_size = Vector2(0, 56)
+custom_maximum_size = Vector2(-1, 56)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 512.0
+offset_bottom = -512.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fh3a")
+
+[node name="Row" type="HBoxContainer" parent="." unique_id=1453702191]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CharacterIcon" type="TextureRect" parent="Row" unique_id=936244383]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 48)
+layout_mode = 2
+texture = ExtResource("1_0470c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerNameText" type="Label" parent="Row" unique_id=942716753]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_nfjfj")
+text = "Player"
+
+[node name="PlayerBadge" type="Label" parent="Row" unique_id=1210340198]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_nfjfj")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "HOST"
+
+[node name="KickButton" type="Button" parent="Row" unique_id=228957103]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_7fh3a")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m5csl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mbudn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cvdha")
+text = "KICK"

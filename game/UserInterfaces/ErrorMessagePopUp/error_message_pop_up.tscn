@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c4uj5gbjavm5d"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_24iir"]
+[ext_resource type="Theme" uid="uid://bvcop4i448bdr" path="res://Themes/okErrorButton.tres" id="2_24iir"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va8fs"]
+bg_color = Color(0, 0, 0, 0.92156863)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 14
+
+[sub_resource type="FontVariation" id="FontVariation_3dfkp"]
+base_font = ExtResource("1_24iir")
+
+[sub_resource type="FontVariation" id="FontVariation_pr8oo"]
+base_font = SubResource("FontVariation_3dfkp")
+
+[node name="ErrorPopup" type="ErrorPopup" unique_id=1122723876]
+layer = 100
+
+[node name="ErrorMessagePopup" type="Control" parent="." unique_id=177206704]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cover" type="ColorRect" parent="ErrorMessagePopup" unique_id=1241598240]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Window" type="PanelContainer" parent="ErrorMessagePopup/Cover" unique_id=386758800]
+custom_minimum_size = Vector2(300, 200)
+custom_maximum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -375.0
+offset_right = 650.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_va8fs")
+
+[node name="Margin" type="MarginContainer" parent="ErrorMessagePopup/Cover/Window" unique_id=1671366483]
+layout_mode = 2
+
+[node name="Layout" type="VBoxContainer" parent="ErrorMessagePopup/Cover/Window/Margin" unique_id=446908247]
+layout_mode = 2
+
+[node name="ErrorMessage" type="Label" parent="ErrorMessagePopup/Cover/Window/Margin/Layout" unique_id=39957442]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 5)
+theme_override_fonts/font = SubResource("FontVariation_pr8oo")
+theme_override_font_sizes/font_size = 30
+text = "THIS IS ERROR"
+autowrap_mode = 2
+
+[node name="OkErrorButton" type="Button" parent="ErrorMessagePopup/Cover/Window/Margin/Layout" unique_id=3234233]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_24iir")
+text = "OK"

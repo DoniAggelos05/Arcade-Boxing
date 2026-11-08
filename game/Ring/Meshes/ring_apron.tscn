@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://2tjm8ysr5ejk"]
+
+[ext_resource type="Texture2D" uid="uid://bxaq5ywxrqvuk" path="res://Ring/Textures/ring_apron.png" id="1_be80y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_eoh86"]
+size = Vector2(1, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm64h"]
+cull_mode = 2
+albedo_color = Color(0.99215686, 0, 0.14901961, 1)
+albedo_texture = ExtResource("1_be80y")
+
+[node name="Apron" type="MeshInstance3D" unique_id=628419817]
+mesh = SubResource("QuadMesh_eoh86")
+surface_material_override/0 = SubResource("StandardMaterial3D_qm64h")

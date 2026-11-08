@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bj706anvrgdme"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_sdk8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fh3a"]
+bg_color = Color(0.14767182, 0.14767179, 0.14767179, 0.60784316)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+shadow_color = Color(0, 0, 0, 0.8901961)
+shadow_size = 6
+
+[sub_resource type="FontVariation" id="FontVariation_of2ie"]
+base_font = ExtResource("1_sdk8b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8xur"]
+bg_color = Color(0.0026824712, 0.5964167, 0.002523399, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qci6e"]
+bg_color = Color(0.003921569, 0.6392157, 0.003921569, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d70aq"]
+bg_color = Color(0.003921569, 0.7019608, 0.003921569, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdk8b"]
+bg_color = Color(0.81960785, 0.06666667, 0.11764706, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="LobbyRow" type="LobbyRow" unique_id=641294010]
+custom_minimum_size = Vector2(0, 56)
+custom_maximum_size = Vector2(-1, 56)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 332.0
+offset_bottom = -332.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fh3a")
+
+[node name="Row" type="HBoxContainer" parent="." unique_id=1453702191]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NameText" type="Label" parent="Row" unique_id=1217449770]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+theme_override_fonts/font = SubResource("FontVariation_of2ie")
+theme_override_font_sizes/font_size = 30
+text = "Angelos Room"
+text_overrun_behavior = 3
+
+[node name="PlayersText" type="Label" parent="Row" unique_id=652284482]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_of2ie")
+theme_override_font_sizes/font_size = 30
+text = "3/6"
+
+[node name="JoinButton" type="Button" parent="Row" unique_id=1686055686]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.003921569, 0.8352941, 0.003921569, 1)
+theme_override_fonts/font = SubResource("FontVariation_of2ie")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p8xur")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qci6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d70aq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_sdk8b")
+text = "Join"

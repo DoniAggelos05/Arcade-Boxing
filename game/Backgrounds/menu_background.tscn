@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://g7iq3x1bj1jm"]
+
+[ext_resource type="PackedScene" uid="uid://cp6h0qmmq8v4p" path="res://Ring/Meshes/complete_ring.tscn" id="1_51x2s"]
+
+[sub_resource type="Environment" id="Environment_xuu61"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.101960786, 0.10980392, 0.14901961, 1)
+ambient_light_energy = 0.5
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+volumetric_fog_albedo = Color(0.41631025, 0.41635218, 0.45177853, 1)
+volumetric_fog_length = 40.0
+
+[node name="MenuBackground" type="MenuBackground" unique_id=1055251298]
+
+[node name="Background" type="WorldEnvironment" parent="." unique_id=1289633594]
+unique_name_in_owner = true
+environment = SubResource("Environment_xuu61")
+
+[node name="Light" type="SpotLight3D" parent="." unique_id=730176082]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+light_energy = 3.0
+light_volumetric_fog_energy = 2.0
+spot_range = 15.0
+
+[node name="CompleteRing" parent="." unique_id=1565651289 instance=ExtResource("1_51x2s")]
+unique_name_in_owner = true
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1875975226]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=854342773]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 5, 7)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CameraRig/Camera3D" unique_id=1416678095]
+light_energy = 0.4
+omni_range = 25.0
+
+[node name="CycleTimer" type="Timer" parent="." unique_id=350199250]
+unique_name_in_owner = true
+wait_time = 15.0
+one_shot = true

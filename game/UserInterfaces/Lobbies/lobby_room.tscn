@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://t7grw16hnb14"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_216ce"]
+[ext_resource type="Theme" uid="uid://dyjcbfapx74hw" path="res://Themes/InLobbyTextTheme.tres" id="2_wxx3y"]
+[ext_resource type="Texture2D" uid="uid://bv0pqc60a55bl" path="res://Images/lock_locked_320px.png" id="3_j0xbi"]
+[ext_resource type="Texture2D" uid="uid://ddsfbd3fjta53" path="res://Images/lock_unlocked_320px.png" id="4_pxjy0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4os1"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.627451)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="FontVariation" id="FontVariation_cukct"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72836"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m84fj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgadj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgyxd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odq88"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h074w"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.627451)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="FontVariation" id="FontVariation_iu1cl"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="FontVariation" id="FontVariation_m5csl"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="FontVariation" id="FontVariation_041gk"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="FontVariation" id="FontVariation_qj3io"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61iny"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.627451)
+
+[sub_resource type="FontVariation" id="FontVariation_0470c"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h074w"]
+
+[sub_resource type="FontVariation" id="FontVariation_7fh3a"]
+base_font = ExtResource("1_216ce")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5csl"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0.3676473, 0.07646655, 1)
+
+[node name="LobbyRoom" type="LobbyRoom" unique_id=360139385]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1311326452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Center" type="CenterContainer" parent="Cover" unique_id=1658546752]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -450.0
+offset_right = 750.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stack" type="VBoxContainer" parent="Cover/Center" unique_id=1553576373]
+layout_mode = 2
+
+[node name="Others" type="PanelContainer" parent="Cover/Center/Stack" unique_id=958242134]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_s4os1")
+
+[node name="OtherLayout" type="HBoxContainer" parent="Cover/Center/Stack/Others" unique_id=15447470]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="LeaveButton" type="Button" parent="Cover/Center/Stack/Others/OtherLayout" unique_id=1785252628]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+offset_transform_visual_only = false
+theme_override_fonts/font = SubResource("FontVariation_cukct")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxEmpty_72836")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m84fj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sgadj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vgyxd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_odq88")
+text = "LEAVE
+"
+
+[node name="Window" type="PanelContainer" parent="Cover/Center/Stack" unique_id=92051043]
+custom_minimum_size = Vector2(1500, 900)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h074w")
+
+[node name="Margin" type="MarginContainer" parent="Cover/Center/Stack/Window" unique_id=1727373670]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin" unique_id=80674682]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=1522641363]
+layout_mode = 2
+
+[node name="LobbyName" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Header" unique_id=632007241]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_iu1cl")
+theme_override_font_sizes/font_size = 24
+text = "Players Lobby"
+
+[node name="PlayerCount" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Header" unique_id=1027622537]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_m5csl")
+theme_override_font_sizes/font_size = 24
+text = "2/10"
+
+[node name="HeaderLineBreak" type="ColorRect" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=665695646]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=1340202137]
+layout_mode = 2
+
+[node name="PlayerNamesText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Columns" unique_id=1433622450]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(80, 0)
+theme_override_fonts/font = SubResource("FontVariation_041gk")
+theme_override_font_sizes/font_size = 19
+text = "Players ▼"
+
+[node name="RankText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Columns" unique_id=343762157]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(-40, 0)
+theme_override_fonts/font = SubResource("FontVariation_qj3io")
+theme_override_font_sizes/font_size = 19
+text = "RANK▼"
+
+[node name="PlayerListBody" type="PanelContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=2035704245]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_61iny")
+
+[node name="Scroll" type="ScrollContainer" parent="Cover/Center/Stack/Window/Margin/Layout/PlayerListBody" unique_id=1976073084]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="PlayerList" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/PlayerListBody/Scroll" unique_id=1940486389]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Footer" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=601457163]
+layout_mode = 2
+
+[node name="LobbyCode" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=1578808822]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme = ExtResource("2_wxx3y")
+text = "Lobby Code:(Here    will be      lobby   code)"
+
+[node name="PrivacyToggle" type="CheckButton" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=5540937]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_position = Vector2(-30, 0)
+offset_transform_visual_only = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 36
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_fonts/font = SubResource("FontVariation_0470c")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h074w")
+theme_override_icons/checked = ExtResource("3_j0xbi")
+theme_override_icons/unchecked = ExtResource("4_pxjy0")
+theme_override_icons/checked_disabled = ExtResource("3_j0xbi")
+theme_override_icons/unchecked_disabled = ExtResource("4_pxjy0")
+text = "Privacy: "
+
+[node name="WaitingText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=120491565]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_wxx3y")
+text = "         WAITING   HOST TO START    "
+
+[node name="StartGameButton" type="Button" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=581128500]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_fonts/font = SubResource("FontVariation_7fh3a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_m5csl")
+text = "START"

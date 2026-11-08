@@ -1,0 +1,429 @@
+[gd_scene format=3 uid="uid://dhg5ehox36pa2"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_bbrms"]
+[ext_resource type="Texture2D" uid="uid://deb2myp8vbu18" path="res://Images/61444.png" id="2_dyfmb"]
+[ext_resource type="Texture2D" uid="uid://dvwtdiqt0c2j7" path="res://Images/left-arrow-key_icon-icons.com_72686.png" id="3_dyfmb"]
+[ext_resource type="Texture2D" uid="uid://s3gvb016y6pb" path="res://icon.svg" id="4_1dueo"]
+[ext_resource type="Texture2D" uid="uid://dvbpnj3x0ilf3" path="res://Images/image.png" id="4_a12gx"]
+[ext_resource type="PackedScene" uid="uid://bkvfnmv2xik3o" path="res://UserInterfaces/Lobbies/create_lobby.tscn" id="6_yqqt2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbrms"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.627451)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="FontVariation" id="FontVariation_em3c1"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fh3a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5csl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpi2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gqv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ngs7f"]
+
+[sub_resource type="FontVariation" id="FontVariation_m5csl"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xm6wo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj33q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m44n5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqcl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iat7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qikg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fh3a"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.627451)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="FontVariation" id="FontVariation_7fh3a"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="FontVariation" id="FontVariation_bbrms"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdk8b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ku46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kty2s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvkva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2elg"]
+
+[sub_resource type="FontVariation" id="FontVariation_xuu61"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="FontVariation" id="FontVariation_dyfmb"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5csl"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.64705884)
+
+[sub_resource type="FontVariation" id="FontVariation_xm6wo"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="FontVariation" id="FontVariation_dj33q"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyfmb"]
+content_margin_left = 10.0
+bg_color = Color(0.03529412, 0.03529412, 0.03529412, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
+[sub_resource type="FontVariation" id="FontVariation_m44n5"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="FontVariation" id="FontVariation_of2ie"]
+base_font = ExtResource("1_bbrms")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8xur"]
+bg_color = Color(0.0026824712, 0.5964167, 0.002523399, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qci6e"]
+bg_color = Color(0.003921569, 0.6392157, 0.003921569, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d70aq"]
+bg_color = Color(0.003921569, 0.7019608, 0.003921569, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdk8b"]
+bg_color = Color(0.81960785, 0.06666667, 0.11764706, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fh3a"]
+atlas = ExtResource("4_a12gx")
+region = Rect2(0, 0, 512, 512)
+
+[node name="LobbyBrowser" type="LobbyBrowser" unique_id=1059122493]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1267921463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Center" type="CenterContainer" parent="Cover" unique_id=2018539800]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -463.5
+offset_right = 750.0
+offset_bottom = 463.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stack" type="VBoxContainer" parent="Cover/Center" unique_id=1189001694]
+layout_mode = 2
+
+[node name="Others" type="PanelContainer" parent="Cover/Center/Stack" unique_id=1461058074]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbrms")
+
+[node name="OtherLayout" type="HBoxContainer" parent="Cover/Center/Stack/Others" unique_id=272603783]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LeaveButton" type="Button" parent="Cover/Center/Stack/Others/OtherLayout" unique_id=501799549]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+offset_transform_visual_only = false
+theme_override_fonts/font = SubResource("FontVariation_em3c1")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7fh3a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m5csl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qpi2u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8gqv5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ngs7f")
+text = "x
+"
+
+[node name="CreateLobbyButton" type="Button" parent="Cover/Center/Stack/Others/OtherLayout" unique_id=299487063]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+offset_transform_enabled = true
+offset_transform_position = Vector2(-10, 0)
+theme_override_fonts/font = SubResource("FontVariation_m5csl")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xm6wo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dj33q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m44n5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mqcl0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iat7x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qikg8")
+text = "CREATE  LOBBY"
+
+[node name="Window" type="PanelContainer" parent="Cover/Center/Stack" unique_id=1390237568]
+custom_minimum_size = Vector2(1500, 900)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fh3a")
+
+[node name="Margin" type="MarginContainer" parent="Cover/Center/Stack/Window" unique_id=1829130642]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin" unique_id=1338652060]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=1362467596]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Header" unique_id=1223507649]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_7fh3a")
+theme_override_font_sizes/font_size = 24
+text = "Lobbies     List"
+
+[node name="RefreshButton" type="Button" parent="Cover/Center/Stack/Window/Margin/Layout/Header" unique_id=1478938810]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 13
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = SubResource("FontVariation_bbrms")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sdk8b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ku46")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kty2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mvkva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k2elg")
+text = "refresh"
+icon = ExtResource("2_dyfmb")
+alignment = 0
+icon_alignment = 2
+
+[node name="HeaderLineBreak" type="ColorRect" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=2140511214]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=985961036]
+layout_mode = 2
+
+[node name="LobbyNames" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Columns" unique_id=680277732]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontVariation_xuu61")
+theme_override_font_sizes/font_size = 19
+text = "Name ▼"
+
+[node name="LobbyPlayerAmount" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Columns" unique_id=129028150]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, 0)
+theme_override_fonts/font = SubResource("FontVariation_dyfmb")
+theme_override_font_sizes/font_size = 19
+text = "Players ▼"
+
+[node name="LobbyState" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Columns" unique_id=472767775]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("FontVariation_dyfmb")
+theme_override_font_sizes/font_size = 19
+text = "State ▼"
+horizontal_alignment = 1
+
+[node name="ListBody" type="PanelContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=1396340874]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5csl")
+
+[node name="Scroll" type="ScrollContainer" parent="Cover/Center/Stack/Window/Margin/Layout/ListBody" unique_id=1809387519]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="LobbyList" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/ListBody/Scroll" unique_id=880312959]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="EmptyList" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/ListBody/Scroll/LobbyList" unique_id=1991103666]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "ITS EMPTY"
+horizontal_alignment = 1
+
+[node name="Footer" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout" unique_id=431302995]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="NameBox" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=698143242]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NameBoxText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/NameBox" unique_id=1969062128]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_xm6wo")
+theme_override_font_sizes/font_size = 21
+text = "Enter  A  name"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/NameBox" unique_id=1984258410]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_dj33q")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyfmb")
+placeholder_text = "Placeholder"
+max_length = 20
+
+[node name="Control" type="Control" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=1585825655]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CodeBox" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=1988921879]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CodeBoxText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CodeBox" unique_id=348844090]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_m44n5")
+theme_override_font_sizes/font_size = 21
+text = "Join By Code"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CodeBox" unique_id=500774967]
+layout_mode = 2
+
+[node name="CodeInput" type="LineEdit" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CodeBox/HBoxContainer" unique_id=1984852688]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_dj33q")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyfmb")
+max_length = 16
+
+[node name="JoinCodeButton" type="Button" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CodeBox/HBoxContainer" unique_id=859807959]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0.003921569, 0.8352941, 0.003921569, 1)
+theme_override_fonts/font = SubResource("FontVariation_of2ie")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_p8xur")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qci6e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d70aq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_sdk8b")
+text = "Join"
+
+[node name="Control2" type="Control" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=780928531]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterBox" type="VBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer" unique_id=956291502]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ChooseCharText" type="Label" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox" unique_id=990359730]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_m44n5")
+theme_override_font_sizes/font_size = 21
+text = "Choose Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox" unique_id=452016571]
+layout_mode = 2
+
+[node name="LeftButton" type="Button" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox/HBoxContainer" unique_id=201796355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/icon_max_width = 59
+icon = ExtResource("3_dyfmb")
+
+[node name="PreviewPanel" type="PanelContainer" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox/HBoxContainer" unique_id=225918652]
+layout_mode = 2
+
+[node name="CharacterPreview" type="TextureRect" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox/HBoxContainer/PreviewPanel" unique_id=2137425227]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_1dueo")
+expand_mode = 1
+
+[node name="RightButton" type="Button" parent="Cover/Center/Stack/Window/Margin/Layout/Footer/CharacterBox/HBoxContainer" unique_id=17414426]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/icon_max_width = 59
+icon = SubResource("AtlasTexture_7fh3a")
+
+[node name="CreateLobby" parent="." unique_id=1694973519 instance=ExtResource("6_yqqt2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="RefreshTimer" type="Timer" parent="." unique_id=250243383]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true

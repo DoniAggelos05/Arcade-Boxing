@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://uspnbr3rocg5"]
+
+[ext_resource type="Texture2D" uid="uid://dh8yyw1k40xy0" path="res://Ring/Textures/ring_canvas.png" id="1_eoh86"]
+[ext_resource type="Texture2D" uid="uid://m1eh5ms8one" path="res://Ring/Textures/ring_logo.png" id="2_qm64h"]
+[ext_resource type="Texture2D" uid="uid://dxrgen7bqoy8a" path="res://Ring/Textures/ring_bottom.png" id="3_qm64h"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xm6wo"]
+top_radius = 4.0
+bottom_radius = 4.0
+height = 0.6
+radial_segments = 5
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuu61"]
+albedo_texture = ExtResource("1_eoh86")
+uv1_scale = Vector3(1.095, 1.095, 1.095)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7fh3a"]
+size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5csl"]
+transparency = 1
+albedo_texture = ExtResource("2_qm64h")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xuu61"]
+top_radius = 4.4
+bottom_radius = 4.4
+height = 0.3
+radial_segments = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm6wo"]
+albedo_texture = ExtResource("3_qm64h")
+uv1_triplanar = true
+
+[node name="RingFloorMesh" type="Node3D" unique_id=1804226045]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1032411683]
+unique_name_in_owner = true
+mesh = SubResource("CylinderMesh_xm6wo")
+surface_material_override/0 = SubResource("StandardMaterial3D_xuu61")
+
+[node name="Logo" type="MeshInstance3D" parent="Floor" unique_id=2018228730]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
+mesh = SubResource("PlaneMesh_7fh3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5csl")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=346091123]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+mesh = SubResource("CylinderMesh_xuu61")
+surface_material_override/0 = SubResource("StandardMaterial3D_xm6wo")

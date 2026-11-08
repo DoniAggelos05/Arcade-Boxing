@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bfa7pcqiew7rh"]
+
+[ext_resource type="Texture2D" uid="uid://djk67wpkt4a5" path="res://Ring/Textures/ring_rope.png" id="1_drmty"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7fh3a"]
+top_radius = 0.018
+bottom_radius = 0.018
+height = 1.0
+radial_segments = 6
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5csl"]
+albedo_texture = ExtResource("1_drmty")
+roughness = 0.4
+
+[node name="Ropes" type="Node3D" unique_id=1727811361]
+
+[node name="Rope1" type="MeshInstance3D" parent="." unique_id=967019876]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_7fh3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5csl")
+
+[node name="Rope2" type="MeshInstance3D" parent="." unique_id=315174301]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.425, 0)
+mesh = SubResource("CylinderMesh_7fh3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5csl")
+
+[node name="Rope3" type="MeshInstance3D" parent="." unique_id=101873142]
+transform = Transform3D(-4.370473e-08, -0.9998477, 0.017452406, 1, -4.371139e-08, 0, 7.628689e-10, 0.017452406, 0.9998477, 0, 0.6, 0)
+mesh = SubResource("CylinderMesh_7fh3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5csl")

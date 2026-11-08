@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://8s7pin23xg1m"]
+
+[ext_resource type="Theme" uid="uid://chw3ond0cw0tt" path="res://Themes/mainMenubuttonTheme.tres" id="1_3h0u5"]
+[ext_resource type="Theme" uid="uid://by7flcwy8ukkv" path="res://Themes/SettingsTextTheme.tres" id="2_s0o4j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fh3a"]
+bg_color = Color(0, 0, 0, 0.7647059)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+corner_detail = 14
+
+[sub_resource type="Theme" id="Theme_m5csl"]
+default_font_size = 29
+
+[sub_resource type="Theme" id="Theme_xuu61"]
+default_font_size = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qio6a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vynn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_taqhi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5csl"]
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.72156864)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SettingsMenu" type="SettingsMenu" unique_id=238687750]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1283239986]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Window" type="PanelContainer" parent="Cover" unique_id=924022730]
+custom_minimum_size = Vector2(1300, 750)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -375.0
+offset_right = 650.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7fh3a")
+
+[node name="Layout" type="VBoxContainer" parent="Cover/Window" unique_id=1441119177]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="Cover/Window/Layout" unique_id=573535617]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Cover/Window/Layout/Header" unique_id=657983573]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 0)
+theme = SubResource("Theme_m5csl")
+text = "Settings"
+
+[node name="CloseButton" type="Button" parent="Cover/Window/Layout/Header" unique_id=1532609754]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-10, 0)
+offset_transform_visual_only = false
+theme = SubResource("Theme_xuu61")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qio6a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4vynn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_taqhi")
+text = "X"
+
+[node name="Body" type="HBoxContainer" parent="Cover/Window/Layout" unique_id=31980768]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Categories" type="VBoxContainer" parent="Cover/Window/Layout/Body" unique_id=646300378]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="GraphicsButton" type="Button" parent="Cover/Window/Layout/Body/Categories" unique_id=1099361900]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("1_3h0u5")
+text = "Graphics"
+
+[node name="SoundButton" type="Button" parent="Cover/Window/Layout/Body/Categories" unique_id=1650438321]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("1_3h0u5")
+text = "Sound
+"
+
+[node name="Settings" type="PanelContainer" parent="Cover/Window/Layout/Body" unique_id=502967902]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5csl")
+
+[node name="Scroll" type="ScrollContainer" parent="Cover/Window/Layout/Body/Settings" unique_id=1665107065]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="Cover/Window/Layout/Body/Settings/Scroll" unique_id=1487028777]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GraphicsSettText" type="Label" parent="Cover/Window/Layout/Body/Settings/Scroll/Content" unique_id=428930423]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_s0o4j")
+text = "Graphics Settings"
+
+[node name="testFrame" type="Control" parent="Cover/Window/Layout/Body/Settings/Scroll/Content" unique_id=760198500]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="SoundSettText" type="Label" parent="Cover/Window/Layout/Body/Settings/Scroll/Content" unique_id=43994476]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_s0o4j")
+text = "Sount Settings"
+
+[node name="TestFrame2" type="Control" parent="Cover/Window/Layout/Body/Settings/Scroll/Content" unique_id=1683521101]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2

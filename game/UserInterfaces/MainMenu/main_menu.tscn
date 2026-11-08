@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://sv7i6nrrratx"]
+
+[ext_resource type="Theme" uid="uid://dlcpfwu3p7egd" path="res://Themes/TitleTheme.tres" id="1_6i4id"]
+[ext_resource type="PackedScene" uid="uid://8s7pin23xg1m" path="res://UserInterfaces/MainMenu/SettingsMenu.tscn" id="2_5dft6"]
+
+[node name="MainMenu" type="MainMenu" unique_id=256398447]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContent" type="Control" parent="." unique_id=1723074003]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MenuContent" unique_id=1575613714]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -107.0
+offset_right = 488.0
+offset_bottom = 188.0
+grow_vertical = 2
+theme = ExtResource("1_6i4id")
+theme_override_constants/separation = 5
+
+[node name="PlayOnlineButton" type="Button" parent="MenuContent/Buttons" unique_id=90274850]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Play Online
+"
+alignment = 0
+
+[node name="PlayOfflineButton" type="Button" parent="MenuContent/Buttons" unique_id=1706911093]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Play Offline
+"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="MenuContent/Buttons" unique_id=1310949848]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Options"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MenuContent/Buttons" unique_id=907665331]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="GameTitle" type="Label" parent="MenuContent" unique_id=2095275139]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 1003.0
+offset_bottom = 203.0
+grow_horizontal = 2
+theme = ExtResource("1_6i4id")
+text = "ARCADE BOXING"
+vertical_alignment = 1
+
+[node name="SettingsMenu" parent="." unique_id=1973371005 instance=ExtResource("2_5dft6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

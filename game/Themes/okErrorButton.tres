@@ -1,0 +1,34 @@
+[gd_resource type="Theme" format=3 uid="uid://bvcop4i448bdr"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_of2ie"]
+
+[sub_resource type="FontVariation" id="FontVariation_tmpip"]
+base_font = ExtResource("1_of2ie")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mskv6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24iir"]
+bg_color = Color(0.085968025, 0.085968025, 0.085968025, 0.78431374)
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eslar"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.61960787)
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8x4vu"]
+bg_color = Color(0.07058824, 0.07058824, 0.07058824, 0.8392157)
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = SubResource("FontVariation_tmpip")
+Button/styles/disabled = SubResource("StyleBoxFlat_mskv6")
+Button/styles/hover = SubResource("StyleBoxFlat_24iir")
+Button/styles/normal = SubResource("StyleBoxFlat_eslar")
+Button/styles/pressed = SubResource("StyleBoxFlat_8x4vu")

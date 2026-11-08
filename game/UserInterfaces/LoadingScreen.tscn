@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://b4qkt2bdqjix2"]
+
+[ext_resource type="Texture2D" uid="uid://mbexc3xuurf4" path="res://Images/Loading-PNG-Images.png" id="1_0puby"]
+[ext_resource type="Theme" uid="uid://bx8hkom82goh6" path="res://Themes/loadingToLobbiesTheme.tres" id="2_0puby"]
+
+[node name="LoadingScreen" type="LoadingScreen" unique_id=1350861054]
+layer = 50
+
+[node name="Screen" type="Control" parent="." unique_id=1973845048]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Screen" unique_id=853303333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LoadingBar" type="HBoxContainer" parent="Screen" unique_id=1478510197]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="ControlSpinner" type="Control" parent="Screen/LoadingBar" unique_id=1464145908]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+
+[node name="Spinner" type="TextureRect" parent="Screen/LoadingBar/ControlSpinner" unique_id=1915526932]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(36, 36)
+texture = ExtResource("1_0puby")
+expand_mode = 2
+
+[node name="LoadingText" type="Label" parent="Screen/LoadingBar" unique_id=1647265752]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_0puby")
+text = "LOADING"
+
+[node name="Dots" type="Label" parent="Screen/LoadingBar" unique_id=1458363624]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-5, -5)
+theme = ExtResource("2_0puby")
+text = "..."

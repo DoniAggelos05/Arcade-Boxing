@@ -1,0 +1,290 @@
+[gd_scene format=3 uid="uid://bkvfnmv2xik3o"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_7rndk"]
+[ext_resource type="Theme" uid="uid://biyqekiv5rnvv" path="res://Themes/CreateLobbyTextTheme.tres" id="2_0sqdp"]
+[ext_resource type="Texture2D" uid="uid://bxp4k0viav6ra" path="res://Images/Minus-PNG-Free-Download.png" id="3_yklqh"]
+[ext_resource type="Texture2D" uid="uid://dc04ledtbr7u5" path="res://Images/plus.png" id="4_l4nil"]
+[ext_resource type="Texture2D" uid="uid://xnsrc5xd1j2n" path="res://Images/tick_128.png" id="5_l4nil"]
+[ext_resource type="Texture2D" uid="uid://crp3wjpenns7s" path="res://Images/x_128.png" id="6_khyen"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5csl"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.6627451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="FontVariation" id="FontVariation_7fh3a"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="FontVariation" id="FontVariation_mfg31"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nebow"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0sqdp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yklqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4nil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khyen"]
+
+[sub_resource type="FontVariation" id="FontVariation_m5csl"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="FontVariation" id="FontVariation_dj33q"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyfmb"]
+content_margin_left = 10.0
+bg_color = Color(0.03529412, 0.03529412, 0.03529412, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
+[sub_resource type="FontVariation" id="FontVariation_xuu61"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fh3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5csl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xuu61"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xm6wo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj33q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m44n5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqcl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iat7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qikg8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpi2u"]
+
+[sub_resource type="FontVariation" id="FontVariation_xm6wo"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="FontVariation" id="FontVariation_l4nil"]
+base_font = ExtResource("1_7rndk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m44n5"]
+bg_color = Color(4.548356e-06, 0.3857211, 0.06288291, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 0.6862745)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khyen"]
+bg_color = Color(8.603372e-07, 0.33309707, 0.0490183, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 0.6862745)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2nr2"]
+bg_color = Color(7.2196127e-07, 0.41677028, 0.07144464, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 0.6862745)
+shadow_size = 1
+
+[node name="CreateLobby" type="CreateLobby" unique_id=600135213]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1616341874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0, 0, 0, 0.3254902)
+
+[node name="Window" type="PanelContainer" parent="Cover" unique_id=1858403315]
+custom_minimum_size = Vector2(1000, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5csl")
+
+[node name="Margin" type="MarginContainer" parent="Cover/Window" unique_id=748338060]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Layout" type="VBoxContainer" parent="Cover/Window/Margin" unique_id=1660711306]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleRow" type="HBoxContainer" parent="Cover/Window/Margin/Layout" unique_id=916681227]
+layout_mode = 2
+
+[node name="CreateLobbyTtle" type="Label" parent="Cover/Window/Margin/Layout/TitleRow" unique_id=252799550]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontVariation_7fh3a")
+theme_override_font_sizes/font_size = 33
+text = "Create  Lobby"
+
+[node name="LeaveLobbyCrButton" type="Button" parent="Cover/Window/Margin/Layout/TitleRow" unique_id=1109121309]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_position = Vector2(10, 0)
+theme_override_fonts/font = SubResource("FontVariation_mfg31")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nebow")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0sqdp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yklqh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l4nil")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_khyen")
+text = "x
+"
+
+[node name="NameRow" type="HBoxContainer" parent="Cover/Window/Margin/Layout" unique_id=756917263]
+layout_mode = 2
+
+[node name="LobbyNameText" type="Label" parent="Cover/Window/Margin/Layout/NameRow" unique_id=1796933323]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_0sqdp")
+theme_override_fonts/font = SubResource("FontVariation_m5csl")
+theme_override_font_sizes/font_size = 24
+text = "Lobby Name"
+
+[node name="LobbyNameInput" type="LineEdit" parent="Cover/Window/Margin/Layout/NameRow" unique_id=481116732]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontVariation_dj33q")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyfmb")
+placeholder_text = "Placeholder"
+max_length = 32
+
+[node name="PlayersRow" type="HBoxContainer" parent="Cover/Window/Margin/Layout" unique_id=1987373610]
+layout_mode = 2
+
+[node name="LobbyPlayersText" type="Label" parent="Cover/Window/Margin/Layout/PlayersRow" unique_id=1414553242]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_0sqdp")
+theme_override_fonts/font = SubResource("FontVariation_xuu61")
+text = "MAX  PLAYERS"
+
+[node name="MinusButton" type="Button" parent="Cover/Window/Margin/Layout/PlayersRow" unique_id=574541552]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/icon_max_width = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7fh3a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m5csl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xuu61")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xm6wo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dj33q")
+icon = ExtResource("3_yklqh")
+
+[node name="CountText" type="Label" parent="Cover/Window/Margin/Layout/PlayersRow" unique_id=1964213775]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("2_0sqdp")
+theme_override_font_sizes/font_size = 40
+text = "2"
+horizontal_alignment = 1
+
+[node name="PlusButton" type="Button" parent="Cover/Window/Margin/Layout/PlayersRow" unique_id=974796487]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/icon_max_width = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m44n5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mqcl0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iat7x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qikg8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qpi2u")
+icon = ExtResource("4_l4nil")
+
+[node name="PrivateRow" type="HBoxContainer" parent="Cover/Window/Margin/Layout" unique_id=463451558]
+layout_mode = 2
+
+[node name="PrivateLobbyText" type="Label" parent="Cover/Window/Margin/Layout/PrivateRow" unique_id=1910095446]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_0sqdp")
+text = "PRiVATE"
+
+[node name="PrivateToggle" type="CheckButton" parent="Cover/Window/Margin/Layout/PrivateRow" unique_id=1725393172]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-30, 0)
+offset_transform_visual_only = false
+theme_override_constants/icon_max_width = 36
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_fonts/font = SubResource("FontVariation_xm6wo")
+theme_override_font_sizes/font_size = 16
+theme_override_icons/checked = ExtResource("5_l4nil")
+theme_override_icons/unchecked = ExtResource("6_khyen")
+
+[node name="CreateButton" type="Button" parent="Cover/Window/Margin/Layout" unique_id=1128837950]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = SubResource("FontVariation_l4nil")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_m44n5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khyen")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y2nr2")
+text = "CREATE"

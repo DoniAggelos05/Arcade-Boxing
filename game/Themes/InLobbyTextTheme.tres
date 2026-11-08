@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://dyjcbfapx74hw"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_sb8x5"]
+
+[sub_resource type="FontVariation" id="FontVariation_4xvjc"]
+base_font = ExtResource("1_sb8x5")
+
+[resource]
+Label/font_sizes/font_size = 35
+Label/fonts/font = SubResource("FontVariation_4xvjc")

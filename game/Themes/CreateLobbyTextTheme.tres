@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://biyqekiv5rnvv"]
+
+[ext_resource type="FontFile" uid="uid://dmcl2ek8vew84" path="res://fonts/ARCADECLASSIC.TTF" id="1_pkfw0"]
+
+[sub_resource type="FontVariation" id="FontVariation_dj33q"]
+base_font = ExtResource("1_pkfw0")
+
+[resource]
+Label/font_sizes/font_size = 24
+Label/fonts/font = SubResource("FontVariation_dj33q")

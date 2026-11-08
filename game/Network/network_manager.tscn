@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://togqloyolchv"]
+
+[node name="NetworkManager" type="NetworkManager" unique_id=967225464]
