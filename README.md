@@ -19,14 +19,23 @@ Arcade Boxing
 
 -"game/":το Godot project (σκηνές,textures,themes)
 -"src/":ο κώδικας C++
+
   -[Network](src/Network/README.md):σύνδεση με τον signaling server
+  
   -[UIs](src/UIs/README.md):όλες οι οθόνες
+  
   -[RingGen](src/RingGen/README.md):δημιουργία του ρινγκ
+  
   -[Background](src/Background/README.md):το 3D φόντο των μενού
+  
 -"server/":οι servers
+
   -[signaling](server/signaling/README.md):ο signaling server σε Node.js
+  
   -[nixos](server/nixos/README.md):οι ρυθμίσεις του NixOS για όλους τους servers
+  
 -"godot-cpp/":submodule τα bindings του Godot για C++
+
 
 
 Build
