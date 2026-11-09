@@ -41,9 +41,13 @@ Arcade Boxing
 Build
 
 Χρειάζεται Python με SCons και ένας C++ compiler.
+
     git clone --recursive https://github.com/DoniAggelos05/Arcade-Boxing.git
+    
     cd Arcade-boxing
+    
     scons platform=windows
+    
 
 Το "--recursive" κατεβάζει και το "godot-cpp".
 Μετά ανοίγεις το "game/project.godot" με το Godot 4.7.
