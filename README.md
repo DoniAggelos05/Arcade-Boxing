@@ -18,6 +18,7 @@ Arcade Boxing
 Φάκελοι
 
 -"game/":το Godot project (σκηνές,textures,themes)
+
 -"src/":ο κώδικας C++
 
   -[Network](src/Network/README.md):σύνδεση με τον signaling server
