@@ -19,11 +19,19 @@ static const float BASE_H      = 0.3f;
 static const float BASE_MARGIN = 0.4f;
 static const float LOGO_FILL   = 0.6f;  
 static const float LOGO_PLANE  = 4.0f;  
+static const float RING_SCALE = 1.3f; 
 static const float POST_INSET = 0.35f;  
 static const float APRON_OFFSET = 0.01f;
 static const float WALL_OFFSET = 0.15f;
 static const float WALL_HEIGHT = 0.9f;
 static const float WALL_THICK = 0.2f;
+static const float SPAWN_INSET = 0.5f;
+
+static const Color CORNER_COLORS[10] = {
+    Color(0.85, 0.15, 0.15),Color(0.15, 0.35, 0.85),Color(0.15, 0.7, 0.25),
+    Color(0.9, 0.75, 0.1),Color(0.6, 0.2, 0.75),Color(0.95, 0.5, 0.1),
+    Color(0.1, 0.75, 0.75), Color(0.9, 0.35, 0.6),Color(0.5, 0.5, 0.5),Color(0.95, 0.95, 0.95)
+};
 
 void CompleteRing::_bind_methods(){}
 
@@ -57,6 +65,7 @@ void CompleteRing::build_ring(int plr_am)
     clear_container(posts);
     clear_container(rope_sets);
     plr_am = CLAMP(plr_am,2,10);
+    P=plr_am;
     N = calc_corn(plr_am);
     R = calc_rad(plr_am);
     build_floor();
@@ -76,11 +85,19 @@ void CompleteRing::clear_container(Node3D* container)
     }
 }
 
-void CompleteRing::make_playable()
+void CompleteRing::make_playable(const Array& players)
 {
-    if(!is_built) return UtilityFunctions::push_error("Arena Has Not Been Build Yet");
+    if(!is_built) return UtilityFunctions::push_error("Arena den exei xtustei akoma");
+    if(players.size() != P) return UtilityFunctions::push_error("Lathos timh players");
     build_floor_coll();
     build_invis_walls();
+    for(int i=0;i<P;i++)
+    {
+            set_corn_color(i,CORNER_COLORS[i]);
+            Node3D* player = Object::cast_to<Node3D>(players[i]);
+            if(!player){UtilityFunctions::push_error("Den einai o paixths Node3d"); continue;}
+            player->set_global_transform(get_global_transform()*calc_spawn_pos(i));
+    }
 }
 
 void CompleteRing::build_floor_coll()
@@ -115,6 +132,31 @@ void CompleteRing::build_invis_walls()
     }
 }
 
+int CompleteRing::corner_of(int i){return (int)Math::round((float)i*N/P)%N;}
+
+Transform3D CompleteRing::calc_spawn_pos(int i)
+{
+    if(i<0 || i>=P){UtilityFunctions::push_error("Den tha eprepe na uparxei paikths me tetoio id"); return Transform3D();} 
+    Vector3 pl_cor = get_corner(corner_of(i));
+    Vector3 pl_pos = pl_cor.normalized() * (R-(POST_INSET+SPAWN_INSET));
+    pl_pos.y = FLOOR_H/2;
+    Transform3D pl_tr;
+    pl_tr.origin = pl_pos;   
+    return pl_tr.looking_at(Vector3(0,FLOOR_H/2,0));
+}
+
+void CompleteRing::set_corn_color(int i ,Color color)
+{
+    Node3D* pole = Object::cast_to<Node3D>(posts->get_child(corner_of(i)));
+    MeshInstance3D* pad = pole->get_node<MeshInstance3D>("%TopPad");
+    if(!pad) return;
+    Ref<StandardMaterial3D> mat = pad->get_surface_override_material(0);
+    if(mat.is_null()) return;
+    mat = mat->duplicate();
+    mat->set_albedo(color);
+    pad->set_surface_override_material(0,mat);
+}
+
 Vector3 CompleteRing::get_corner(int i) {return Vector3(R*Math::sin(2*Math::PI*i/N),0,R*Math::cos(2*Math::PI*i/N));}
 
 
@@ -127,7 +169,7 @@ int CompleteRing::calc_corn(int plr_am)
 float CompleteRing::calc_rad(int plr_am)
 {
     float tot_rad = N == 4 ? R_TWO+SQUARE_STEP*(plr_am-2.0f) : SIDE/(2.0f*(float)Math::sin(Math::PI/N));
-    return tot_rad;
+    return tot_rad*RING_SCALE;
 }
 
 Ref<CylinderMesh> CompleteRing::make_prism(float radius, float height)

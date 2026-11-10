@@ -19,7 +19,7 @@ protected:
 public:
     void _ready() override;
     void build_ring(int plr_am);
-    void make_playable();
+    void make_playable(const Array& players);
     void clear_container(Node3D* container);
     float get_rad() const;
 
@@ -35,6 +35,7 @@ private:
     MeshInstance3D* base = nullptr;
     MeshInstance3D* logo = nullptr;
     int N = 0;
+    int P = 0;
     float R = 0.0f;
     bool is_built = false;
     int calc_corn(int plr_am);
@@ -48,5 +49,8 @@ private:
     void build_ropes();
     void build_floor_coll();
     void build_invis_walls();
+    int corner_of(int i);
+    Transform3D calc_spawn_pos(int i);
+    void set_corn_color(int i,Color color);
 };
 }

@@ -12,7 +12,7 @@ volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.41631025, 0.41635218, 0.45177853, 1)
 volumetric_fog_length = 40.0
 
-[node name="MenuBackground" type="MenuBackground" unique_id=1055251298]
+[node name="MenuBackground" type="MenuBackground" unique_id=1838547781]
 
 [node name="Background" type="WorldEnvironment" parent="." unique_id=1289633594]
 unique_name_in_owner = true
@@ -44,3 +44,6 @@ omni_range = 25.0
 unique_name_in_owner = true
 wait_time = 15.0
 one_shot = true
+
+[node name="TestPlayers" type="Node3D" parent="." unique_id=36420494]
+unique_name_in_owner = true
