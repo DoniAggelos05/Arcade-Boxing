@@ -4,6 +4,10 @@
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/core/math.hpp>
 #include <godot_cpp/classes/standard_material3d.hpp>
+#include <godot_cpp/classes/static_body3d.hpp>
+#include <godot_cpp/classes/convex_polygon_shape3d.hpp>
+#include<godot_cpp/classes/collision_shape3d.hpp>
+#include <godot_cpp/classes/box_shape3d.hpp>
 
 using namespace godot;
 
@@ -17,6 +21,9 @@ static const float LOGO_FILL   = 0.6f;
 static const float LOGO_PLANE  = 4.0f;  
 static const float POST_INSET = 0.35f;  
 static const float APRON_OFFSET = 0.01f;
+static const float WALL_OFFSET = 0.15f;
+static const float WALL_HEIGHT = 0.9f;
+static const float WALL_THICK = 0.2f;
 
 void CompleteRing::_bind_methods(){}
 
@@ -38,6 +45,7 @@ void CompleteRing::_ready()
     floor = get_node<MeshInstance3D>("%FloorMesh/%Floor");
     base = get_node<MeshInstance3D>("%FloorMesh/%Base");
     logo = get_node<MeshInstance3D>("%FloorMesh/%Logo");
+    physics = get_node<Node3D>("%Physics");
 }
 
 float CompleteRing::get_rad() const {return R;}
@@ -71,6 +79,40 @@ void CompleteRing::clear_container(Node3D* container)
 void CompleteRing::make_playable()
 {
     if(!is_built) return UtilityFunctions::push_error("Arena Has Not Been Build Yet");
+    build_floor_coll();
+    build_invis_walls();
+}
+
+void CompleteRing::build_floor_coll()
+{
+    StaticBody3D* floor_bod = memnew(StaticBody3D);
+    CollisionShape3D* floor_coll = memnew(CollisionShape3D);
+    floor_coll->set_shape(floor->get_mesh()->create_convex_shape());
+    floor_bod->add_child(floor_coll);
+    physics->add_child(floor_bod);
+}
+
+void CompleteRing::build_invis_walls()
+{
+    for(int i=0;i<N;i++)
+    {
+        Ref<BoxShape3D> box;
+        box.instantiate();
+        Vector3 a = get_corner(i);
+        Vector3 b = get_corner((i+1)%N);
+        Vector3 mid = (a+b)/2;
+        float length = a.distance_to(b);
+        StaticBody3D* wall_bod = memnew(StaticBody3D);
+        CollisionShape3D* wall_coll = memnew(CollisionShape3D);
+        box->set_size(Vector3(length, WALL_HEIGHT, WALL_THICK));
+        Vector3 pos = mid.normalized() * (mid.length()+WALL_OFFSET-WALL_THICK/2);
+        pos.y = FLOOR_H/2 + WALL_HEIGHT/2 ; 
+        wall_coll->set_shape(box);
+        wall_bod->add_child(wall_coll);
+        wall_bod->set_position(pos);
+        wall_bod->set_rotation(Vector3(0, atan2(mid.x, mid.z), 0));
+        physics->add_child(wall_bod);
+    }
 }
 
 Vector3 CompleteRing::get_corner(int i) {return Vector3(R*Math::sin(2*Math::PI*i/N),0,R*Math::cos(2*Math::PI*i/N));}
@@ -146,7 +188,7 @@ void CompleteRing::build_poles()
     {
         Vector3 corner = get_corner(i);
         Node3D* pole = Object::cast_to<Node3D>(post_scene->instantiate());
-        if(!posts){ UtilityFunctions::push_error("Posts couldnt be loaded");return;}
+        if(!pole){ UtilityFunctions::push_error("Posts couldnt be loaded");return;}
         posts->add_child(pole);
         Vector3 pos = corner.normalized()*(R-POST_INSET);
         pos.y = FLOOR_H/2;

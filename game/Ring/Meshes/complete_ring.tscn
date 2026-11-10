@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://uspnbr3rocg5" path="res://Ring/Meshes/ring_floor_mesh.tscn" id="1_bgh84"]
 
-[node name="CompleteRing" type="CompleteRing" unique_id=1825729381]
+[node name="CompleteRing" type="CompleteRing" unique_id=343808708]
 
 [node name="FloorMesh" parent="." unique_id=1804226045 instance=ExtResource("1_bgh84")]
 unique_name_in_owner = true
@@ -14,4 +14,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="RopeSets" type="Node3D" parent="." unique_id=1247574108]
+unique_name_in_owner = true
+
+[node name="Physics" type="Node3D" parent="." unique_id=330913693]
 unique_name_in_owner = true

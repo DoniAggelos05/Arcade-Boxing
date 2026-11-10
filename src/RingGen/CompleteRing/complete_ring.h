@@ -30,6 +30,7 @@ private:
     Node3D* aprons = nullptr;
     Node3D* posts = nullptr;
     Node3D* rope_sets = nullptr;
+    Node3D* physics = nullptr;
     MeshInstance3D* floor = nullptr;
     MeshInstance3D* base = nullptr;
     MeshInstance3D* logo = nullptr;
@@ -45,5 +46,7 @@ private:
     void build_poles();
     Vector3 hole_towards(Node3D* pole, Vector3 target); 
     void build_ropes();
+    void build_floor_coll();
+    void build_invis_walls();
 };
 }
