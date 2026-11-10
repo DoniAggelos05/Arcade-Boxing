@@ -12,9 +12,13 @@ Arcade Boxing
 Τι υπάρχει μέχρι τώρα
 
 -servers σε NixOS:signaling (Node.js),TURN (coturn),DuckDNS
+
 -σύστημα lobby:λίστα,δημιουργία,είσοδος με κωδικό,κλείδωμα,kick
+
 -UI:αρχικό μενού,ρυθμίσεις,loading screen,μηνύματα σφάλματος,λίστα lobbies,lobby room
+
 -δυναμική αρένα:το ρινγκ χτίζεται από κώδικα ανάλογα με τους παίκτες
+
 -3D background πίσω από τα μενού
 
 
