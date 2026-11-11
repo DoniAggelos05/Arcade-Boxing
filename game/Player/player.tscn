@@ -3,7 +3,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fh3a"]
 height = 1.8
 
-[node name="Player" type="CharacterBody3D" unique_id=1721306058]
+[node name="Player" type="Player" unique_id=730069737]
 
 [node name="Model" type="Node3D" parent="." unique_id=2112067383]
 unique_name_in_owner = true

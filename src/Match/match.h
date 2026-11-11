@@ -4,8 +4,7 @@
 #include <godot_cpp/classes/world_environment.hpp>
 #include <RingGen/CompleteRing/complete_ring.h>
 #include <godot_cpp/classes/packed_scene.hpp>
-#include <Characters/characters.h>
-
+#include "Network/network_manager.h"
 
 namespace godot{
 class Match: public Node3D
@@ -21,9 +20,8 @@ private:
     CompleteRing* ring = nullptr;
     Ref<PackedScene> player_scene;
     Node3D* players_con = nullptr;
+    NetworkManager* net_man = nullptr;
 
 };
-    
-    
     
 }
