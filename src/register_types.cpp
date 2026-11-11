@@ -19,6 +19,7 @@
 #include "UIs/LobbyRoomGUI/lobby_room.h"
 #include "RingGen/CompleteRing/complete_ring.h"
 #include "Background/menu_background.h"
+#include "Player/player.h"
 
 
 using namespace godot;
@@ -42,6 +43,7 @@ void initialize_arcadeboxing_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(LobbyRoom);
 	GDREGISTER_CLASS(CompleteRing);
 	GDREGISTER_CLASS(MenuBackground);
+	GDREGISTER_CLASS(Player);
 }
 
 // Καλείται όταν το Godot κλείνει.

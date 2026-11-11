@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d1lad5ky6hkbf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7fh3a"]
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wg4qi"]
+albedo_color = Color(1, 0.43529412, 0, 1)
+
+[node name="Model3" type="Node3D" unique_id=1150930458]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=109132709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_7fh3a")
+surface_material_override/0 = SubResource("StandardMaterial3D_wg4qi")
