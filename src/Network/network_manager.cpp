@@ -3,6 +3,7 @@
 #include <godot_cpp/classes/engine.hpp>
 #include "network_manager.h"
 #include <godot_cpp/classes/json.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;
 
@@ -191,7 +192,24 @@ void NetworkManager::handle_message(const Dictionary& msg)
     else if(type == "match_started")
     {
         roster = msg.get("roster", Array());
+        start_webrtc();
         emit_signal("match_started");
+    }
+    else if(type == "signal")
+    {
+        int from = msg.get("from",0);
+        Dictionary data = msg.get("data",Dictionary());
+        Ref<WebRTCPeerConnection> conn = connections.get(from,Variant());
+        if(conn.is_null()) return;
+        if(data["kind"] == "sdp")
+        {
+            conn->set_remote_description(data["type"],data["sdp"]);
+        }
+        else if(data["kind"] == "ice")
+        {
+            conn->add_ice_candidate(data["media"],data["index"],data["name"]);
+        }
+
     }
     
 }
@@ -283,4 +301,81 @@ Dictionary NetworkManager::get_curr_lobb(){return curr_lobby;}
 Dictionary NetworkManager::get_players(){return players;}
 
 Array NetworkManager::get_roster(){return roster;}
+
+
+void NetworkManager::start_webrtc()
+{
+    my_id = curr_lobby.get("id", 0);
+    rtc.instantiate();
+    if(my_id == 1)
+    {
+        rtc->create_server();
+        for(int i=0;i<roster.size();i++)
+        {
+            Dictionary d = roster[i];
+            int id = d.get("id",0);
+            if(id != 1) create_conn(id);
+        }
+    }
+    else
+    {
+        rtc->create_client(my_id);
+        Ref<WebRTCPeerConnection> conn = create_conn(1);
+        conn->create_offer();
+    }
+    get_multiplayer()->set_multiplayer_peer(rtc);
+    get_multiplayer()->connect("peer_connected",callable_mp(this,&NetworkManager::on_rtc_peer_connected));
+}
+
+void NetworkManager::on_rtc_peer_connected(int64_t id)
+{
+    UtilityFunctions::print("WebRTC connected to ", id);
+}
+
+Ref<WebRTCPeerConnection> NetworkManager::create_conn(int id)
+{
+    Ref<WebRTCPeerConnection> conn;
+    conn.instantiate();
+    Dictionary config;
+    config["iceServers"] = curr_lobby.get("iceServers",Array());
+    conn->initialize(config);
+    conn->connect("session_description_created",callable_mp(this,&NetworkManager::on_sdp_created).bind(id));
+    conn->connect("ice_candidate_created",callable_mp(this,&NetworkManager::on_ice_created).bind(id));
+    rtc->add_peer(conn,id);
+    connections[id] = conn;
+    return conn;
+}
+
+void NetworkManager::on_sdp_created(const String& type, const String& sdp, int id)
+{
+    Ref<WebRTCPeerConnection> conn = connections.get(id, Variant());
+    if(conn.is_null()) return;
+    conn->set_local_description(type, sdp);
+    
+    Dictionary data;
+    data["kind"] = "sdp";
+    data["type"] = type;
+    data["sdp"] = sdp;
+
+    Dictionary msg;
+    msg["type"] = "signal";
+    msg["to"] = id;
+    msg["data"] = data;
+    send_message(msg);
+}
+
+void NetworkManager::on_ice_created(const String& media, int index, const String& name, int id)
+{
+    Dictionary data;
+    data["kind"] = "ice";
+    data["media"] = media;
+    data["index"] = index;
+    data["name"] = name;
+
+    Dictionary msg;
+    msg["type"] = "signal";
+    msg["to"] = id;
+    msg["data"] = data;
+    send_message(msg);
+}
 

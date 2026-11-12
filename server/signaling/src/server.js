@@ -5,7 +5,7 @@ const { createHandlers } = require("./handlers");
 const { createIceServers } = require("./turn");
 const { log, LEVELS } = require("./logger");
 
-const MAX_MESSAGES_PER_SECOND = 30; // όριο συχνότητας ανά σύνδεση
+const MAX_MESSAGES_PER_SECOND = 200; // όριο συχνότητας ανά σύνδεση
 const HEARTBEAT_MS = 30 * 1000;     // κάθε πόσο ελέγχουμε αν ζει κάθε σύνδεση
 
 const manager = new LobbyManager();
