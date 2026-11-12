@@ -38,6 +38,7 @@ void LobbyRoom::_ready()
     load_sc = get_node<LoadingScreen>("/root/LoadingScreen");
     net_man = get_node<NetworkManager>("/root/NetworkManagerGlobal");
     Button* leave_butt = get_node<Button>("%LeaveButton");
+    if(on_start_butt) on_start_butt->connect("pressed", callable_mp(this, &LobbyRoom::on_start_press));
 
     for (const char* path : CHARACTER_IMAGES)
     {
@@ -60,6 +61,7 @@ void LobbyRoom::_ready()
         net_man->connect("peer_left",callable_mp(this,&LobbyRoom::on_player_left));
         net_man->connect("lock_changed",callable_mp(this,&LobbyRoom::on_lock_changed));
         net_man->connect("kicked", callable_mp(this, &LobbyRoom::on_kicked));
+        net_man->connect("match_started",callable_mp(this,&LobbyRoom::on_match_started));
     }
     if(is_priv_toggle)is_priv_toggle->connect("toggled",callable_mp(this,&LobbyRoom::set_lock));
 
@@ -180,4 +182,23 @@ void LobbyRoom::on_kicked()
     if(load_sc)load_sc->show_loading("Back To Lobbies");
     if(error_sc)error_sc->createPopup("You Where Kicked By The Host");
     get_tree()->change_scene_to_file("res://UserInterfaces/Lobbies/lobby_list.tscn");
+}
+
+void LobbyRoom::on_start_press()
+{
+    if(players.size() >= 2)
+    {
+        if(!net_man) return;
+        net_man->start_match();
+    }
+    else
+    {
+        error_sc->createPopup("need at least 2 players");
+    }
+}
+
+void LobbyRoom::on_match_started()
+{
+    if(load_sc) load_sc->show_loading("Loading Game");
+    get_tree()->change_scene_to_file("res://Match/match.tscn");
 }

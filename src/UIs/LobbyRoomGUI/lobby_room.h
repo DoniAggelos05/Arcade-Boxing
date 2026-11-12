@@ -48,6 +48,7 @@ private:
     void set_lock(bool lock);
     void on_lock_changed(bool lock);
     void on_start_press(); //otan pathsei o host to start koumbi
+    void on_match_started();
     void on_leave_pressed();
     void on_lobby_closed();
     void on_player_joined(int id, const String& name, int character);

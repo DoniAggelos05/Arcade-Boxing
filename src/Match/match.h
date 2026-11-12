@@ -5,6 +5,7 @@
 #include <godot_cpp/classes/packed_scene.hpp>
 #include "Network/network_manager.h"
 #include "RingGen/CompleteRing/complete_ring.h"
+#include "UIs/LoadingScreenGUI/loading_screen.h"
 
 
 namespace godot{
@@ -22,6 +23,7 @@ private:
     Ref<PackedScene> player_scene;
     Node3D* players_con = nullptr;
     NetworkManager* net_man = nullptr;
+    LoadingScreen* load_sc = nullptr;
 
 
 };

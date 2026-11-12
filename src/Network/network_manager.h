@@ -21,8 +21,10 @@ public:
     void join_lobby(const String& code, const String& player_name, int character,bool from_list);
     void set_locked(bool lock);
     void kick_player(int id);
+    void start_match();
     Dictionary get_curr_lobb();
     Dictionary get_players();
+    Array get_roster();
 private:
 //socket gia thn sundesh me to signaling 
     Ref<WebSocketPeer> socket;
@@ -31,6 +33,7 @@ private:
     double connect_timer = 0.0;
     Dictionary curr_lobby;
     Dictionary players;
+    Array roster;
     void handle_message(const Dictionary& msg);
     void send_message(const Dictionary& msg);
 };

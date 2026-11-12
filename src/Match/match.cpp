@@ -7,6 +7,7 @@
 #include "Player/player.h"
 
 
+
 using namespace godot;
 
 
@@ -25,8 +26,16 @@ void Match::_ready()
     if(player_scene.is_null()) {return UtilityFunctions::push_error("player_scene: den egine load player scene");}
     players_con = get_node<Node3D>("%Players");
     net_man = get_node<NetworkManager>("/root/NetworkManagerGlobal");
+    load_sc = get_node<LoadingScreen>("/root/LoadingScreen");
     Node* background = get_node_or_null("/root/MenuBackgroundGlobal");
-    if(background) background->queue_free();    
+    if(background) background->queue_free(); 
+    if(load_sc) load_sc->hide_loading();
+    if(net_man)
+    {
+        if(!ring || !players_con) return UtilityFunctions::push_error("ta ring nodes kai playercon nodes lupoun");
+        setup_match(net_man->get_roster());
+    }
+     
 }
 
 

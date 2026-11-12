@@ -257,7 +257,7 @@ function createHandlers(manager) {
       }
 
       lobby.started = true; 
-      lobby.broadcast({ type: "match_started" });
+      lobby.broadcast({ type: "match_started",roster: msg.roster });
       log(LEVELS.SAFE, ws, { players: lobby.size });
     },
 

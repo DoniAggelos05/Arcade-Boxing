@@ -22,6 +22,7 @@ void NetworkManager::_bind_methods()
     ADD_SIGNAL(MethodInfo("peer_left", PropertyInfo(Variant::INT, "id")));
     ADD_SIGNAL(MethodInfo("lock_changed",PropertyInfo(Variant::BOOL, "locked")));
     ADD_SIGNAL(MethodInfo("kicked"));
+    ADD_SIGNAL(MethodInfo("match_started"));
 }
 
 void NetworkManager::_ready()
@@ -187,6 +188,11 @@ void NetworkManager::handle_message(const Dictionary& msg)
         players.clear();
         emit_signal("kicked");
     }
+    else if(type == "match_started")
+    {
+        roster = msg.get("roster", Array());
+        emit_signal("match_started");
+    }
     
 }
 
@@ -252,7 +258,29 @@ void NetworkManager::kick_player(int id)
     send_message(msg);
 }
 
+void NetworkManager::start_match()
+{
+    Dictionary msg;
+    Array roster;
+    msg["type"] = "start_match";
+    Array ids = players.keys();
+    ids.shuffle();
+    for(int i=0;i<ids.size();i++)
+    {
+        int id = ids[i];
+        Dictionary info = players[id];
+        Dictionary entry;
+        entry["id"] = id;
+        entry["character"] = info.get("character",0);
+        roster.push_back(entry);
+    }
+    msg["roster"] = roster;
+    send_message(msg);
+}
+
 Dictionary NetworkManager::get_curr_lobb(){return curr_lobby;}
 
 Dictionary NetworkManager::get_players(){return players;}
+
+Array NetworkManager::get_roster(){return roster;}
 
