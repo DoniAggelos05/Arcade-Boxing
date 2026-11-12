@@ -39,24 +39,26 @@ _process
 
 handle_message
 
-Διαβάζει το "type" του μηνύματος και στέλνει το αντίστοιχο signal:
+Διαβάζει το "type" του μηνύματος,ενημερώνει τα δεδομένα που κρατάει και μετά στέλνει το αντίστοιχο signal:
 
 -"welcome" -> "connected"
 -"lobbies" -> "lobbies_received(list)"
--"lobby_created" ή "joined" -> "created_lobby(msg)" και αποθηκεύει το lobby στο "curr_lobby"
+-"lobby_created" ή "joined" -> "created_lobby(msg)" αποθηκεύει το lobby στο "curr_lobby" και γεμίζει το "players"
 -"error" -> "server_error(reason)"
--"lobby_closed" -> "lobby_closed" και καθαρίζει το "curr_lobby"
--"peer_joined" -> "peer_joined(id,name,character)"
--"peer_left" -> "peer_left(id)"
+-"lobby_closed" -> "lobby_closed" και καθαρίζει "curr_lobby" και "players" 
+-"peer_joined" -> προσθέτει τον παίκτη στο "players" και στέλνει "peer_joined(id,name,character)" 
+-"peer_left" -> τον αφαιρεί από το "players" και στέλνει "peer_left(id)"
 -"lock_changed" -> "lock_changed(locked)" και ενημερώνει το "isPrivate" του "curr_lobby"
--"kicked" -> "kicked" και καθαρίζει το "curr_lobby"
+-"kicked" -> "kicked" και καθαρίζει "curr_lobby" και "players"
+-"match_started" -> αποθηκεύει το "roster" που έστειλε ο host και στέλνει "match_started"
 
 
-curr_lobby
+Το "change_scene_to_file" δεν μπορεί να περάσει δεδομένα στη νέα σκηνή. Γι αυτό ο NetworkManager κρατάει ότι χρειάζεται από σκηνή σε σκηνή και οι σκηνές τα διαβάζουν μόλις φορτώσουν:
 
-Το "change_scene_to_file" δεν μπορεί να περάσει δεδομένα στη νέα σκηνή.
-Γι αυτό ο NetworkManager κρατάει τα στοιχεία του lobby (όνομα,κωδικός,id μου,παίκτες κλπ)
-και το lobby room τα διαβάζει με "get_curr_lobb()" μόλις φορτώσει.
+-"curr_lobby" ("get_curr_lobb()"):όνομα,κωδικός,id μου,μέγιστοι παίκτες,STUN/TURN κλπ 
+-"players" ("get_players()"):όλοι οι παίκτες του lobby ({id:{ name,character }}).
+Ζει εδώ και όχι στο lobby room ώστε να υπάρχει και μέσα στον αγώνα 
+-"roster" ("get_roster()"):η σειρά των παικτών στον αγώνα ([{id,character},...]) όπως βγήκε απο τον host
 
 
 Μηνύματα προς τον server
@@ -67,7 +69,7 @@ curr_lobby
 -"create_lobby(name,maxPlayers,isPrivate,playerName,character)":δημιουργεί lobby
 -"join_lobby(code,playerName,character,fromList)":μπαίνει σε lobby.
 Το "fromList" λέει στον server αν ο παίκτης πάτησε Join από τη λίστα ή έγραψε κωδικό ώστε σε κλειδωμένο lobby να μπαίνει κανείς μόνο με κωδικό.
--"leave_lobby()":βγαίνει από το lobby και καθαρίζει το "curr_lobby"
+-"leave_lobby()":βγαίνει από το lobby και καθαρίζει το "curr_lobby" και "players"
 -"set_locked(locked)":κλειδώνει ή ξεκλειδώνει το lobby (μόνο ο host)
 -"kick_player(id)":διώχνει παίκτη (μόνο ο host)
 
@@ -75,6 +77,5 @@ curr_lobby
 
 Τι μένει 
 
--έναρξη αγώνα ("start_match") 
 -σύνδεση των παικτών με τον host μέσω WebRTC ("WebRTCMultiplayerPeer") με τα μηνύματα "signal" του server 
 -κρυπτογράφηση της σύνδεσης ("wss://")

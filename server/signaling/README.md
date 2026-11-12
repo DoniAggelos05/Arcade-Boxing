@@ -43,9 +43,9 @@ Signaling server
 -"create_lobby":φτιάχνει lobby,ο παίκτης γίνεται host με id 1-> απάντηση "lobby_created"
 -"join":μπαίνει σε lobby με κωδικό-> απάντηση "joined" με τους υπόλοιπους παίκτες,και στους άλλους "peer_joined"
 -"leave":φεύγει από το lobby.Αν φύγει ο host το lobby κλείνει και όλοι παίρνουν "lobby_closed"
--"kick":ο host διώχνει παίκτη-> ο παίκτης παίρνει "kicked",οι άλλοι "peer_left"
+-"kick":ο host διώχνει παίκτη-> ο παίκτης παίρνει "kicked" και οι άλλοι "peer_left"
 -"set_locked":ο host κλειδώνει ή ξεκλειδώνει το lobby-> όλοι παίρνουν "lock_changed"
--"start_match":ο host ξεκινάει τον αγώνα-> όλοι παίρνουν "match_started"
+-"start_match":ο host ξεκινάει τον αγώνα και στέλνει τη σειρά των παικτών ("roster")-> όλοι παίρνουν "match_started" με το ίδιο "roster"
 -"signal":προωθεί ένα μήνυμα WebRTC(offer,answer,ICE) σε άλλον παίκτη του ίδιου lobby
 
 Σε κάθε απόρριψη ο server στέλνει "error" με τον λόγο(πχ"lobby_full","no_such_lobby","not_host").
@@ -108,7 +108,7 @@ Log(logger.js)
 Τα logs φαίνονται με:
     journalctl -u signaling -f
 
-(Διευρκίνηση:
+(Διευρκίνιση:
     Ο server πρέπει να είναι προσβάσιμος από το internet:
     -δημόσια IP (όχι πίσω από CGNAT)
     -ανοιχτή η θύρα 8443 TCP στο firewall και port forward στον router
