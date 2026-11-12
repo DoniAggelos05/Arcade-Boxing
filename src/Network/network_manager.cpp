@@ -126,6 +126,25 @@ void NetworkManager::handle_message(const Dictionary& msg)
     else if(type == "lobby_created" || type == "joined")
     {
         curr_lobby = msg;
+
+        players.clear();
+        int my_id = msg.get("id", 0);
+        Dictionary me;
+        me["name"] = msg.get("playerName", "");
+        me["character"] = msg.get("character", 0);
+        players[my_id] = me;
+
+        Array peers = msg.get("peers", Array());
+        for (int i = 0; i < peers.size(); i++)
+        {
+            Dictionary p = peers[i];
+            int id = p.get("id", 0);
+            Dictionary info;
+            info["name"] = p.get("name", "");
+            info["character"] = p.get("character", 0);
+            players[id] = info;
+        }
+        
         emit_signal("created_lobby",msg);
     }
     else if(type=="error")
@@ -135,6 +154,7 @@ void NetworkManager::handle_message(const Dictionary& msg)
     else if(type=="lobby_closed")
     {
         curr_lobby.clear();
+        players.clear();
         emit_signal("lobby_closed");
     }
     else if (type == "peer_joined")
@@ -142,11 +162,17 @@ void NetworkManager::handle_message(const Dictionary& msg)
         int id = msg.get("id", 0);
         String name = msg.get("name", "");
         int character = msg.get("character", 0);
+
+        Dictionary info;
+        info["name"] = name;
+        info["character"] = character;
+        players[id] = info;
         emit_signal("peer_joined", id, name, character);
     }
     else if (type == "peer_left")
     {
         int id = msg.get("id", 0);
+        players.erase(id);
         emit_signal("peer_left", id);
     }
     else if( type == "lock_changed")
@@ -158,6 +184,7 @@ void NetworkManager::handle_message(const Dictionary& msg)
     else if(type == "kicked")
     {
         curr_lobby.clear();
+        players.clear();
         emit_signal("kicked");
     }
     
@@ -195,6 +222,7 @@ void NetworkManager::leave_lobby()
     msg["type"] = "leave";
     send_message(msg);
     curr_lobby.clear();
+    players.clear();
 }
 
 void NetworkManager::join_lobby(const String& code, const String& player_name, int character,bool from_list)
@@ -225,4 +253,6 @@ void NetworkManager::kick_player(int id)
 }
 
 Dictionary NetworkManager::get_curr_lobb(){return curr_lobby;}
+
+Dictionary NetworkManager::get_players(){return players;}
 

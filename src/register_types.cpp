@@ -20,6 +20,7 @@
 #include "RingGen/CompleteRing/complete_ring.h"
 #include "Background/menu_background.h"
 #include "Player/player.h"
+#include "Match/match.h"
 
 
 using namespace godot;
@@ -44,6 +45,7 @@ void initialize_arcadeboxing_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(CompleteRing);
 	GDREGISTER_CLASS(MenuBackground);
 	GDREGISTER_CLASS(Player);
+	GDREGISTER_CLASS(Match);
 }
 
 // Καλείται όταν το Godot κλείνει.

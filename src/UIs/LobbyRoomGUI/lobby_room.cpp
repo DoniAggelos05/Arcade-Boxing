@@ -113,22 +113,7 @@ void LobbyRoom::set_up_lobby()
         is_priv_toggle->set_disabled(!is_host);
     }
 
-    players.clear();
-    Dictionary me;
-    me["name"] = lobby_data.get("playerName", "");
-    me["character"] = lobby_data.get("character", 0);
-    players[my_id] = me;
-
-    Array peers = lobby_data.get("peers", Array());
-    for (int i = 0; i < peers.size(); i++)
-    {
-        Dictionary p = peers[i];
-        int id = p.get("id", 0);
-        Dictionary info;
-        info["name"] = p.get("name", "");
-        info["character"] = p.get("character", 0);
-        players[id] = info;
-    }
+    players = net_man->get_players();
 
 }
 
@@ -165,16 +150,13 @@ void LobbyRoom::rebuild_player_list()
 
 void LobbyRoom::on_player_joined(int id, const String& name, int character)
 {
-    Dictionary info;
-    info["name"] = name;
-    info["character"] = character;
-    players[id] = info;         
+    players = net_man->get_players();   
     rebuild_player_list(); 
 }
 
 void LobbyRoom::on_player_left(int id)
 {
-    players.erase(id);          
+    players = net_man->get_players();        
     rebuild_player_list(); 
 }
 

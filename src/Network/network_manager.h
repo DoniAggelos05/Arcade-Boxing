@@ -22,6 +22,7 @@ public:
     void set_locked(bool lock);
     void kick_player(int id);
     Dictionary get_curr_lobb();
+    Dictionary get_players();
 private:
 //socket gia thn sundesh me to signaling 
     Ref<WebSocketPeer> socket;
@@ -29,6 +30,7 @@ private:
     bool connected = false;
     double connect_timer = 0.0;
     Dictionary curr_lobby;
+    Dictionary players;
     void handle_message(const Dictionary& msg);
     void send_message(const Dictionary& msg);
 };
