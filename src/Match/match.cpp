@@ -29,11 +29,13 @@ void Match::_ready()
     load_sc = get_node<LoadingScreen>("/root/LoadingScreen");
     Node* background = get_node_or_null("/root/MenuBackgroundGlobal");
     if(background) background->queue_free(); 
-    if(load_sc) load_sc->hide_loading();
+    if(load_sc) load_sc->show_loading("Connecting all players");
     if(net_man)
     {
         if(!ring || !players_con) return UtilityFunctions::push_error("ta ring nodes kai playercon nodes lupoun");
         setup_match(net_man->get_roster());
+        net_man->connect("all_connected",callable_mp(this,&Match::on_all_connected));
+        if(net_man->is_all_connected()) on_all_connected();
     }
      
 }
@@ -56,4 +58,9 @@ void Match::setup_match(const Array& roster)
     }
     ring->build_ring(pl_list.size());
     ring->make_playable(pl_list);
+}
+
+void Match::on_all_connected()
+{
+    if(load_sc) load_sc->hide_loading();
 }

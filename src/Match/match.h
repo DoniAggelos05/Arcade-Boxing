@@ -24,7 +24,7 @@ private:
     Node3D* players_con = nullptr;
     NetworkManager* net_man = nullptr;
     LoadingScreen* load_sc = nullptr;
-
+    void on_all_connected();
 
 };
     

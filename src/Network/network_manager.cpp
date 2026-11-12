@@ -4,6 +4,7 @@
 #include "network_manager.h"
 #include <godot_cpp/classes/json.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <godot_cpp/classes/multiplayer_peer.hpp>
 
 using namespace godot;
 
@@ -24,6 +25,8 @@ void NetworkManager::_bind_methods()
     ADD_SIGNAL(MethodInfo("lock_changed",PropertyInfo(Variant::BOOL, "locked")));
     ADD_SIGNAL(MethodInfo("kicked"));
     ADD_SIGNAL(MethodInfo("match_started"));
+    ADD_SIGNAL(MethodInfo("all_connected"));
+    ClassDB::bind_method(D_METHOD("all_connected_rpc"), &NetworkManager::all_connected_rpc);
 }
 
 void NetworkManager::_ready()
@@ -33,6 +36,12 @@ void NetworkManager::_ready()
     {
         return;
     }
+    Dictionary cfg;
+    cfg["rpc_mode"] = MultiplayerAPI::RPC_MODE_AUTHORITY;
+    cfg["call_local"] = true;
+    cfg["transfer_mode"] = MultiplayerPeer::TRANSFER_MODE_RELIABLE;
+    cfg["channel"] = 0;
+    rpc_config("all_connected_rpc", cfg);
     socket.instantiate();
 }
 
@@ -330,6 +339,9 @@ void NetworkManager::start_webrtc()
 void NetworkManager::on_rtc_peer_connected(int64_t id)
 {
     UtilityFunctions::print("WebRTC connected to ", id);
+    if(my_id != 1) return;
+    connected_count++;
+    if(connected_count == roster.size() - 1) rpc("all_connected_rpc");
 }
 
 Ref<WebRTCPeerConnection> NetworkManager::create_conn(int id)
@@ -351,7 +363,7 @@ void NetworkManager::on_sdp_created(const String& type, const String& sdp, int i
     Ref<WebRTCPeerConnection> conn = connections.get(id, Variant());
     if(conn.is_null()) return;
     conn->set_local_description(type, sdp);
-    
+
     Dictionary data;
     data["kind"] = "sdp";
     data["type"] = type;
@@ -379,3 +391,10 @@ void NetworkManager::on_ice_created(const String& media, int index, const String
     send_message(msg);
 }
 
+void NetworkManager::all_connected_rpc()
+{
+    all_connected = true;
+    emit_signal("all_connected");
+}
+
+bool NetworkManager::is_all_connected(){return all_connected;}

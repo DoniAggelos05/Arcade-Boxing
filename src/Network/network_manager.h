@@ -28,14 +28,18 @@ public:
     Dictionary get_curr_lobb();
     Dictionary get_players();
     Array get_roster();
+    void all_connected_rpc();
+    bool is_all_connected();
 private:
 //socket gia thn sundesh me to signaling 
     Ref<WebSocketPeer> socket;
     Ref<WebRTCMultiplayerPeer> rtc;
     bool is_connecting = false;  
     bool connected = false;
+    bool all_connected = false;
     double connect_timer = 0.0;
     int my_id = 0;
+    int connected_count = 0;
     Dictionary curr_lobby;
     Dictionary players;
     Dictionary connections;
