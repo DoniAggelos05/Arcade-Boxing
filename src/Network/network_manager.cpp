@@ -43,6 +43,8 @@ void NetworkManager::_ready()
     cfg["channel"] = 0;
     rpc_config("all_connected_rpc", cfg);
     socket.instantiate();
+    get_multiplayer()->connect("peer_connected",callable_mp(this,&NetworkManager::on_rtc_peer_connected));
+
 }
 
 void NetworkManager::_process(double delta)
@@ -73,6 +75,7 @@ void NetworkManager::_process(double delta)
         if(connected)
         {
             connected = false;
+            close_webrtc();
             emit_signal("disconnected");
         }
         set_process(false);
@@ -139,7 +142,7 @@ void NetworkManager::handle_message(const Dictionary& msg)
         curr_lobby = msg;
 
         players.clear();
-        int my_id = msg.get("id", 0);
+        my_id = msg.get("id", 0);
         Dictionary me;
         me["name"] = msg.get("playerName", "");
         me["character"] = msg.get("character", 0);
@@ -166,6 +169,7 @@ void NetworkManager::handle_message(const Dictionary& msg)
     {
         curr_lobby.clear();
         players.clear();
+        close_webrtc();
         emit_signal("lobby_closed");
     }
     else if (type == "peer_joined")
@@ -185,6 +189,11 @@ void NetworkManager::handle_message(const Dictionary& msg)
         int id = msg.get("id", 0);
         players.erase(id);
         emit_signal("peer_left", id);
+        if(my_id==1 && rtc.is_valid() && connections.has(id))
+        {
+            rtc->remove_peer(id);
+            connections.erase(id);
+        }
     }
     else if( type == "lock_changed")
     {
@@ -196,6 +205,7 @@ void NetworkManager::handle_message(const Dictionary& msg)
     {
         curr_lobby.clear();
         players.clear();
+        close_webrtc();
         emit_signal("kicked");
     }
     else if(type == "match_started")
@@ -256,6 +266,7 @@ void NetworkManager::leave_lobby()
     send_message(msg);
     curr_lobby.clear();
     players.clear();
+    close_webrtc();
 }
 
 void NetworkManager::join_lobby(const String& code, const String& player_name, int character,bool from_list)
@@ -333,7 +344,6 @@ void NetworkManager::start_webrtc()
         conn->create_offer();
     }
     get_multiplayer()->set_multiplayer_peer(rtc);
-    get_multiplayer()->connect("peer_connected",callable_mp(this,&NetworkManager::on_rtc_peer_connected));
 }
 
 void NetworkManager::on_rtc_peer_connected(int64_t id)
@@ -398,3 +408,14 @@ void NetworkManager::all_connected_rpc()
 }
 
 bool NetworkManager::is_all_connected(){return all_connected;}
+
+void NetworkManager::close_webrtc()
+{
+    if(rtc.is_valid()) rtc->close();
+    rtc.unref();
+    get_multiplayer()->set_multiplayer_peer(Ref<MultiplayerPeer>());
+    connections.clear();
+    roster.clear();
+    connected_count = 0;
+    all_connected=false;
+}

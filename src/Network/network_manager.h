@@ -30,6 +30,7 @@ public:
     Array get_roster();
     void all_connected_rpc();
     bool is_all_connected();
+    void close_webrtc();
 private:
 //socket gia thn sundesh me to signaling 
     Ref<WebSocketPeer> socket;

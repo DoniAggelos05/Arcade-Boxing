@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hbvk20jetbul"]
 
 [ext_resource type="PackedScene" uid="uid://cp6h0qmmq8v4p" path="res://Ring/Meshes/complete_ring.tscn" id="1_4gt3v"]
+[ext_resource type="PackedScene" uid="uid://bcloyoin4qnai" path="res://Match/match_menu.tscn" id="2_dijnt"]
 
 [sub_resource type="Environment" id="Environment_7fh3a"]
 
@@ -21,3 +22,7 @@ transform = Transform3D(1, 0, 0, 0, -0.084904134, 0.99638915, 0, -0.99638915, -0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2142220585]
 transform = Transform3D(1, 0, 0, 0, 0.85580707, 0.5172952, 0, -0.5172952, 0.85580707, 0, 4.725556, 7.277327)
+
+[node name="MatchMenu" parent="." unique_id=1000367984 instance=ExtResource("2_dijnt")]
+unique_name_in_owner = true
+visible = false
