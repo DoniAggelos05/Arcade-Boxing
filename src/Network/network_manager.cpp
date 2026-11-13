@@ -27,6 +27,7 @@ void NetworkManager::_bind_methods()
     ADD_SIGNAL(MethodInfo("match_started"));
     ADD_SIGNAL(MethodInfo("all_connected"));
     ClassDB::bind_method(D_METHOD("all_connected_rpc"), &NetworkManager::all_connected_rpc);
+    ADD_SIGNAL(MethodInfo("match_ended"));
 }
 
 void NetworkManager::_ready()
@@ -228,7 +229,11 @@ void NetworkManager::handle_message(const Dictionary& msg)
         {
             conn->add_ice_candidate(data["media"],data["index"],data["name"]);
         }
-
+    }
+    else if(type == "match_ended")
+    {
+        close_webrtc();
+        emit_signal("match_ended");
     }
     
 }
@@ -418,4 +423,14 @@ void NetworkManager::close_webrtc()
     roster.clear();
     connected_count = 0;
     all_connected=false;
+}
+
+void NetworkManager::end_match()
+{
+    if(my_id == 1)
+    {
+        Dictionary msg;
+        msg["type"] = "end_match";
+        send_message(msg);
+    }
 }

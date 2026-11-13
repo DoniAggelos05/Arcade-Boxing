@@ -21,6 +21,7 @@
 #include "Background/menu_background.h"
 #include "Player/player.h"
 #include "Match/match.h"
+#include "Match/match_menu.h"
 
 
 using namespace godot;
@@ -46,6 +47,7 @@ void initialize_arcadeboxing_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(MenuBackground);
 	GDREGISTER_CLASS(Player);
 	GDREGISTER_CLASS(Match);
+	GDREGISTER_CLASS(MatchMenu);
 }
 
 // Καλείται όταν το Godot κλείνει.

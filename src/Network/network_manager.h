@@ -31,6 +31,7 @@ public:
     void all_connected_rpc();
     bool is_all_connected();
     void close_webrtc();
+    void end_match();
 private:
 //socket gia thn sundesh me to signaling 
     Ref<WebSocketPeer> socket;

@@ -282,6 +282,27 @@ function createHandlers(manager) {
     leave(ws, msg) {
       leaveLobby(ws);
     },
+
+    end_match(ws, msg)
+    {
+      const lobby = currentLobby(ws);
+      if(!lobby)
+      {
+        sendError(ws, "not_in_lobby");
+        return;
+      }
+      if (ws.peerId !== 1) {
+        sendError(ws, "not_host");
+        return;
+      }
+      if (!lobby.started) {
+        sendError(ws, "match_not_started");
+        return;
+      }
+      lobby.started = false;
+      lobby.broadcast({ type: "match_ended" });      
+      log(LEVELS.SAFE, ws, { players: lobby.size });
+    },
   };
 
   return handlers;

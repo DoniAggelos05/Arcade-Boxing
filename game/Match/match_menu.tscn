@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://chw3ond0cw0tt" path="res://Themes/mainMenubuttonTheme.tres" id="1_ey8yy"]
 
-[node name="MatchMenu" type="CanvasLayer" unique_id=1000367984]
+[node name="MatchMenu" type="MatchMenu" unique_id=526979159]
 
 [node name="Scene" type="Control" parent="." unique_id=428418990]
 layout_mode = 3
