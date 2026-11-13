@@ -434,3 +434,5 @@ void NetworkManager::end_match()
         send_message(msg);
     }
 }
+
+int NetworkManager::get_id(){return my_id;}

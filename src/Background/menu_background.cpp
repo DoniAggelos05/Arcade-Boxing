@@ -74,3 +74,15 @@ void MenuBackground::place_camera()
     float k = MAX(1.0f, r/REF_R);
     camera->set_position(base_cam_pos * k);
 }
+
+void MenuBackground::set_active(bool on)
+{
+    set_visible(on);
+    set_process_mode(on ? PROCESS_MODE_INHERIT : PROCESS_MODE_DISABLED);
+    if(camera)
+    {
+        if(on) camera->make_current();
+        else camera->clear_current(false);
+    }
+    if(background) background->set_environment(on ? env : Ref<Environment>());
+}

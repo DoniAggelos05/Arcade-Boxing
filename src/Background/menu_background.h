@@ -22,6 +22,7 @@ protected:
 public:
     void _ready() override;
     void _process(double delta) override;
+    void set_active(bool on);
 
 private:
     int last_pl=0;
